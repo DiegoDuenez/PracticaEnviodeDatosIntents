@@ -10,13 +10,35 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    final Button btnEnviar = (Button) findViewById(R.id.btnSend);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        Button btnEnviar = (Button) findViewById(R.id.btnSend);
+
+        EditText nombre = (EditText) findViewById(R.id.inputxt1);
+        EditText correo = (EditText) findViewById(R.id.inputxt2);
+        EditText edad = (EditText) findViewById(R.id.inputxt3);
+
+        btnEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent enviarIntent = new Intent(getApplicationContext(), pantalla2.class);
+                enviarIntent.putExtra("nombre", nombre.getText().toString());
+                enviarIntent.putExtra("correo", correo.getText().toString());
+                enviarIntent.putExtra("edad", edad.getText().toString());
+                startActivity(enviarIntent);
+            }
+        });
+
+
+
+       /* final Button btnEnviar = (Button) findViewById(R.id.btnSend);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(enviarIntent);
 
             }
-        });
+        });*/
 
 
 
