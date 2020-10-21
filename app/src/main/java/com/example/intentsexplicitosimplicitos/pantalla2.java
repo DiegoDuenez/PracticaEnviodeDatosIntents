@@ -29,6 +29,18 @@ public class pantalla2 extends AppCompatActivity {
         muestraCorreo.setText(getDatos.getStringExtra("correo"));
         muestraEdad.setText(getDatos.getStringExtra("edad"));
 
+        final Button paginabtn = (Button) findViewById(R.id.btnPage);
+        paginabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent paginaIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://code.tutsplus.com"));
+                startActivity(paginaIntent);
+            }
+        });
+
+
+
+
 
 
 
